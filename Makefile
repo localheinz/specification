@@ -5,7 +5,7 @@ it: cs test
 composer:
 	composer self-update
 	composer validate
-	composer update
+	composer install
 
 coverage: composer
 	vendor/bin/phpunit --configuration=test/Unit/phpunit.xml --coverage-text
