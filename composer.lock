@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "509a7e516d8f7fa6141b43ff4e269d55",
+    "content-hash": "1b92595db6d4535a73c60b4535e28cf7",
     "packages": [],
     "packages-dev": [
         {
@@ -561,6 +561,57 @@
             ],
             "description": "Provides a configuration factory and multiple rule sets for friendsofphp/php-cs-fixer.",
             "time": "2017-08-28T12:12:50+00:00"
+        },
+        {
+            "name": "localheinz/test-util",
+            "version": "0.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/localheinz/test-util.git",
+                "reference": "d9fccb85e1a1f4c79ee52943e78e4e179c8dc85e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/localheinz/test-util/zipball/d9fccb85e1a1f4c79ee52943e78e4e179c8dc85e",
+                "reference": "d9fccb85e1a1f4c79ee52943e78e4e179c8dc85e",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.0"
+            },
+            "require-dev": {
+                "codeclimate/php-test-reporter": "0.4.4",
+                "fzaninotto/faker": "^1.0.0",
+                "localheinz/php-cs-fixer-config": "~1.5.1",
+                "phpunit/phpunit": "^6.2.4",
+                "zendframework/zend-file": "^2.7.1"
+            },
+            "suggest": {
+                "fzaninotto/faker": "For generating fake data in tests",
+                "zendframework/zend-file": "For using assertions which traverse the filesystem to find classes"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Localheinz\\Test\\Util\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Andreas Möller",
+                    "email": "am@localheinz.com"
+                }
+            ],
+            "description": "Provides utilities for tests.",
+            "keywords": [
+                "phpunit",
+                "test"
+            ],
+            "time": "2017-09-16T10:41:13+00:00"
         },
         {
             "name": "myclabs/deep-copy",
