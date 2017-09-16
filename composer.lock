@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "9facfb3e249cc365c40d4c606b565e55",
+    "content-hash": "ba44508b61fbc3adbe066bd9ad04c882",
     "packages": [],
     "packages-dev": [
         {
@@ -385,6 +385,56 @@
             "time": "2017-09-11T14:37:41+00:00"
         },
         {
+            "name": "fzaninotto/faker",
+            "version": "v1.7.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/fzaninotto/Faker.git",
+                "reference": "d3ed4cc37051c1ca52d22d76b437d14809fc7e0d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/fzaninotto/Faker/zipball/d3ed4cc37051c1ca52d22d76b437d14809fc7e0d",
+                "reference": "d3ed4cc37051c1ca52d22d76b437d14809fc7e0d",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^5.3.3 || ^7.0"
+            },
+            "require-dev": {
+                "ext-intl": "*",
+                "phpunit/phpunit": "^4.0 || ^5.0",
+                "squizlabs/php_codesniffer": "^1.5"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.8-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Faker\\": "src/Faker/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "François Zaninotto"
+                }
+            ],
+            "description": "Faker is a PHP library that generates fake data for you.",
+            "keywords": [
+                "data",
+                "faker",
+                "fixtures"
+            ],
+            "time": "2017-08-15T16:48:10+00:00"
+        },
+        {
             "name": "gecko-packages/gecko-php-unit",
             "version": "v2.2",
             "source": {
@@ -564,31 +614,27 @@
         },
         {
             "name": "localheinz/test-util",
-            "version": "0.1.0",
+            "version": "0.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/localheinz/test-util.git",
-                "reference": "d9fccb85e1a1f4c79ee52943e78e4e179c8dc85e"
+                "reference": "ce5dd5f34a8a987e722b77fb02e643e53377e7ca"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/localheinz/test-util/zipball/d9fccb85e1a1f4c79ee52943e78e4e179c8dc85e",
-                "reference": "d9fccb85e1a1f4c79ee52943e78e4e179c8dc85e",
+                "url": "https://api.github.com/repos/localheinz/test-util/zipball/ce5dd5f34a8a987e722b77fb02e643e53377e7ca",
+                "reference": "ce5dd5f34a8a987e722b77fb02e643e53377e7ca",
                 "shasum": ""
             },
             "require": {
-                "php": "^7.0"
+                "fzaninotto/faker": "^1.0.0",
+                "php": "^7.0",
+                "zendframework/zend-file": "^2.7.1"
             },
             "require-dev": {
                 "codeclimate/php-test-reporter": "0.4.4",
-                "fzaninotto/faker": "^1.0.0",
                 "localheinz/php-cs-fixer-config": "~1.5.1",
-                "phpunit/phpunit": "^6.2.4",
-                "zendframework/zend-file": "^2.7.1"
-            },
-            "suggest": {
-                "fzaninotto/faker": "For generating fake data in tests",
-                "zendframework/zend-file": "For using assertions which traverse the filesystem to find classes"
+                "phpunit/phpunit": "^6.2.4"
             },
             "type": "library",
             "autoload": {
@@ -608,10 +654,12 @@
             ],
             "description": "Provides utilities for tests.",
             "keywords": [
+                "assertion",
+                "faker",
                 "phpunit",
                 "test"
             ],
-            "time": "2017-09-16T10:41:13+00:00"
+            "time": "2017-09-16T16:08:32+00:00"
         },
         {
             "name": "myclabs/deep-copy",
