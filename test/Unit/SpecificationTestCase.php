@@ -15,22 +15,19 @@ namespace Localheinz\Specification\Test\Unit;
 
 use Localheinz\Specification\SpecificationInterface;
 use Localheinz\Specification\Test\Fixture;
+use Localheinz\Test\Util\Helper;
 use PHPUnit\Framework;
 
 abstract class SpecificationTestCase extends Framework\TestCase
 {
-    final public function testIsFinal()
-    {
-        $reflection = new \ReflectionClass($this->className());
-
-        $this->assertTrue($reflection->isFinal());
-    }
+    use Helper;
 
     final public function testImplementsSpecificationInterface()
     {
-        $reflection = new \ReflectionClass($this->className());
-
-        $this->assertTrue($reflection->implementsInterface(SpecificationInterface::class));
+        $this->assertClassImplementsInterface(
+            SpecificationInterface::class,
+            $this->className()
+        );
     }
 
     final protected function createTest(bool $expected, bool ...$isSatisfiedBy)
