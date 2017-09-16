@@ -11,14 +11,11 @@ declare(strict_types=1);
  * @link https://github.com/localheinz/specification
  */
 
-namespace Localheinz\Specification\Test\Unit\Asset;
+namespace Localheinz\Specification\Test\Fixture\Specification;
 
 use Localheinz\Specification\SpecificationInterface;
 
-/**
- * @internal
- */
-final class Specification implements SpecificationInterface
+final class CandidateSpecification implements SpecificationInterface
 {
     /**
      * @var object
