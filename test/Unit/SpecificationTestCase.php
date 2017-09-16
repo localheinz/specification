@@ -22,11 +22,6 @@ abstract class SpecificationTestCase extends Framework\TestCase
 {
     use Helper;
 
-    final public function testIsFinal()
-    {
-        $this->assertClassIsAbstractOrFinal($this->className());
-    }
-
     final public function testImplementsSpecificationInterface()
     {
         $this->assertClassImplementsInterface(
