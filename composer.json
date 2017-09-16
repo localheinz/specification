@@ -20,7 +20,7 @@
   "require-dev": {
     "codeclimate/php-test-reporter": "0.4.4",
     "localheinz/php-cs-fixer-config": "~1.4.0",
-    "localheinz/test-util": "0.1.0",
+    "localheinz/test-util": "0.2.0",
     "phpunit/phpunit": "^6.2.1",
     "zendframework/zend-file": "^2.7.1"
   },
