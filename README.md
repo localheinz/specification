@@ -61,13 +61,13 @@ Use `Localheinz\Specification\AndSpecification` to compose a specification
 from specifications which all need to be satisfied:
 
 ```php
-use Foo\Bar;
-use Localheinz\Specification;
+use Localheinz\Specification\AndSpecification;
+use Localheinz\Specification\Test\Fixture;
 
-$specification = new Specification\AndSpecification(
-    new Bar\IsInstanceOfStdClass(),
-    new Bar\HasFooProperty(),
-    new Bar\HasBarProperty()
+$specification = new AndSpecification(
+    new Fixture\Specification\IsInstanceOfStdClass(),
+    new Fixture\Specification\HasFooProperty(),
+    new Fixture\Specification\HasBarProperty()
 );
 
 $candidate = new \stdClass();
@@ -84,13 +84,13 @@ Use `Localheinz\Specification\OrSpecification` to compose a specification
 from specifications where only one needs to be satisfied:
 
 ```php
-use Foo\Bar;
-use Localheinz\Specification;
+use Localheinz\Specification\OrSpecification;
+use Localheinz\Specification\Test\Fixture;
 
-$specification = new Specification\OrSpecification(
-    new Bar\IsInstanceOfStdClass(),
-    new Bar\HasFooProperty(),
-    new Bar\HasBarProperty()
+$specification = new OrSpecification(
+    new Fixture\Specification\IsInstanceOfStdClass(),
+    new Fixture\Specification\HasFooProperty(),
+    new Fixture\Specification\HasBarProperty()
 );
 
 $candidate = new \stdClass();
@@ -104,13 +104,13 @@ Use `Localheinz\Specification\NotSpecification` to compose a specification
 from specifications where none should be satisfied:
 
 ```php
-use Foo\Bar;
-use Localheinz\Specification;
+use Localheinz\Specification\NotSpecification;
+use Localheinz\Specification\Test\Fixture;
 
-$specification = new Specification\NotSpecification(
-    new Bar\IsInstanceOfStdClass(),
-    new Bar\HasFooProperty(),
-    new Bar\HasBarProperty()
+$specification = new NotSpecification(
+    new Fixture\Specification\IsInstanceOfStdClass(),
+    new Fixture\Specification\HasFooProperty(),
+    new Fixture\Specification\HasBarProperty()
 );
 
 $candidate = new \SplObjectStorage();
@@ -123,14 +123,16 @@ $specification->isSatisfiedBy($candidate); // true
 Mix and match all of the specifications to your need:
 
 ```php
-use Foo\Bar;
-use Localheinz\Specification;
+use Localheinz\Specification\AndSpecification;
+use Localheinz\Specification\NotSpecification;
+use Localheinz\Specification\OrSpecification;
+use Localheinz\Specification\Test\Fixture;
 
-$specification = new Specification\AndSpecification(
-    new Specification\NotSpecification(new Bar\IsInstanceOfStdClass()),
-    new Specification\OrSpecification(
-        new Bar\HasFooProperty(),
-        new Bar\HasBarProperty()
+$specification = new AndSpecification(
+    new NotSpecification(new Fixture\Specification\IsInstanceOfStdClass()),
+    new OrSpecification(
+        new Fixture\Specification\HasFooProperty(),
+        new Fixture\Specification\HasBarProperty()
     )
 );
 

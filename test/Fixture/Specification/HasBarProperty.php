@@ -11,7 +11,7 @@ declare(strict_types=1);
  * @link https://github.com/localheinz/specification
  */
 
-namespace Localheinz\Specification\Test\Integration\Asset;
+namespace Localheinz\Specification\Test\Fixture\Specification;
 
 use Localheinz\Specification\SpecificationInterface;
 

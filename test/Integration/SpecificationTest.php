@@ -14,6 +14,7 @@ declare(strict_types=1);
 namespace Localheinz\Specification\Test\Integration;
 
 use Localheinz\Specification;
+use Localheinz\Specification\Test\Fixture;
 use PHPUnit\Framework;
 
 final class SpecificationTest extends Framework\TestCase
@@ -26,9 +27,9 @@ final class SpecificationTest extends Framework\TestCase
         $candidate->bar = 3.14;
 
         $specification = new Specification\AndSpecification(
-            new Asset\IsInstanceOfStdClass(),
-            new Asset\HasFooProperty(),
-            new Asset\HasBarProperty()
+            new Fixture\Specification\IsInstanceOfStdClass(),
+            new Fixture\Specification\HasFooProperty(),
+            new Fixture\Specification\HasBarProperty()
         );
 
         $this->assertTrue($specification->isSatisfiedBy($candidate));
@@ -41,9 +42,9 @@ final class SpecificationTest extends Framework\TestCase
         $candidate->introduction = 'Hello, my name is Jane';
 
         $specification = new Specification\OrSpecification(
-            new Asset\IsInstanceOfStdClass(),
-            new Asset\HasFooProperty(),
-            new Asset\HasBarProperty()
+            new Fixture\Specification\IsInstanceOfStdClass(),
+            new Fixture\Specification\HasFooProperty(),
+            new Fixture\Specification\HasBarProperty()
         );
 
         $this->assertTrue($specification->isSatisfiedBy($candidate));
@@ -54,9 +55,9 @@ final class SpecificationTest extends Framework\TestCase
         $candidate = new \SplObjectStorage();
 
         $specification = new Specification\NotSpecification(
-            new Asset\IsInstanceOfStdClass(),
-            new Asset\HasFooProperty(),
-            new Asset\HasBarProperty()
+            new Fixture\Specification\IsInstanceOfStdClass(),
+            new Fixture\Specification\HasFooProperty(),
+            new Fixture\Specification\HasBarProperty()
         );
 
         $this->assertTrue($specification->isSatisfiedBy($candidate));
@@ -64,13 +65,13 @@ final class SpecificationTest extends Framework\TestCase
 
     public function testMixAndMatchSpecifications()
     {
-        $candidate = new Asset\Baz();
+        $candidate = new Specification\Test\Fixture\Candidate\Baz();
 
         $specification = new Specification\AndSpecification(
-            new Specification\NotSpecification(new Asset\IsInstanceOfStdClass()),
+            new Specification\NotSpecification(new Fixture\Specification\IsInstanceOfStdClass()),
             new Specification\OrSpecification(
-                new Asset\HasFooProperty(),
-                new Asset\HasBarProperty()
+                new Fixture\Specification\HasFooProperty(),
+                new Fixture\Specification\HasBarProperty()
             )
         );
 

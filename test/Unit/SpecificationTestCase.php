@@ -14,6 +14,7 @@ declare(strict_types=1);
 namespace Localheinz\Specification\Test\Unit;
 
 use Localheinz\Specification\SpecificationInterface;
+use Localheinz\Specification\Test\Fixture;
 use PHPUnit\Framework;
 
 abstract class SpecificationTestCase extends Framework\TestCase
@@ -39,7 +40,7 @@ abstract class SpecificationTestCase extends Framework\TestCase
         $reflection = new \ReflectionClass($this->className());
 
         $specifications = \array_map(function ($isSatisfied) use ($candidate) {
-            return new Asset\Specification(
+            return new Fixture\Specification\CandidateSpecification(
                 $candidate,
                 $isSatisfied
             );
