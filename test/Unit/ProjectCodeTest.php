@@ -11,7 +11,7 @@ declare(strict_types=1);
  * @link https://github.com/localheinz/specification
  */
 
-namespace Localheinz\Specification\Unit;
+namespace Localheinz\Specification\Test\Unit;
 
 use Localheinz\Test\Util\Helper;
 use PHPUnit\Framework;
