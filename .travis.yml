@@ -60,6 +60,7 @@ jobs:
         - if [[ "$WITH_COVERAGE" == "true" ]]; then xdebug-enable; fi
         - if [[ "$WITH_COVERAGE" == "true" ]]; then vendor/bin/phpunit --configuration=test/Unit/phpunit.xml --coverage-clover=build/logs/clover.xml; else vendor/bin/phpunit --configuration=test/Unit/phpunit.xml; fi
         - if [[ "$WITH_COVERAGE" == "true" ]]; then xdebug-disable; fi
+        - vendor/bin/phpunit --configuration=test/Integration/phpunit.xml
 
       after_success:
         - if [[ "$WITH_COVERAGE" == "true" && -n "$CODECLIMATE_REPO_TOKEN" ]]; then vendor/bin/test-reporter --coverage-report=build/logs/clover.xml; fi
