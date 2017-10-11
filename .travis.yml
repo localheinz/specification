@@ -7,55 +7,110 @@ env:
     - secure: "GmAUxOyoB4rK1DuHY8MymysZBriNYKqmENRR+K+E3TXmcsMBDUhR6LZqUKfaEWtRM5CRGTYoEgiD6zO2I07eyDcDlTxfaDR/s08lvBcRqNL/+7FkAlPeholyegzHbda+0cfhKJLwEZvSjr/NcZAOltxcBqeBxzJpZmG2qYJJlPaU4wNg0lfjAgWLOSB9+ugEO0vblsIHFpenezzoxzXG6pMFXN/yjwSGyW+1HMmZGy6mu7pWURPPncNTD0DAo4tX9sNUz3jl/Qg/4Jibzd/LBBkEF5thVrco3g1lLIObKkv+kKQP9qLvduVN5NTmUKtcprg1QkzQcO1xRhDcCQv+DTe8RbsJbn17uUMdCvCZpweJohwLKCo2b/3VlQRhemOr0Mmj945EzyZ37XdLB0uzwh1xzo21kmOjxZEO+IhPyhuXKatPinqpKa9VWvTFkaCaNK+URJT2Q+/n8iQJEfx3pLdvyAkBD9iExDn5sWQtizrNOoz/4NoPf0yujhNmrqjQXNPrfJlulUo9Zsr8UKVf4tkh9YQZbhcIAmO2F1G80555a1BahTj2B1I70hvWK6WnkAP4LrBXakquZOt6twlIV5juUdr1WOBXt1hAR03nQ+6wQcoVoLIXRYHU19mQQxU3V5bBlsG8oPzEVEcSbQvqzGYOfjgMk1N1iS39kKuamK0="
     - secure: "YGucw2LcrMeY3yupvQwxE1TUZTJp5IqOGN5BmGxzUZ8qJsjN60dZ8zJExAEvclmDtm9Ru0Pk9+3abzP+pzem5bnQL1Az4D4aiJD7r1CEe1r24kajZFMtNRUtZyvjVQRtGwjPtAdMMZS3yug/zMfFUD061/BR/zTsC8Gnkm80jvF61B9VXhsI0GPTjbTGAYZ38TMrnI2xsu6Nuic6YJXCQ1HUeY+fyHbglueifIBuc4Fh08gTBYZPvZAflmbma6Be5UXTliHTMUGaIlJHLN5lmiwYuiu4IIY/FWCedWMj4PyW3oY1kxhSmVtOUQBr7z7l7xrW4JwXPu1vX/TMeXHLE89id/T79E96Viyi94rlPTfW0WMjbUQ9BjgGiUGlZaStJ9EiS0dSR+bwZYjufws3SJp9CLfNgzp2/cpNPwc+ixIEF4cKbBSSRPfgLG1n9YZNhfdSOfHN/IWefxaPPnK7UmXtVEC4cm+iAyHj5GE5UyLY+uF8fuF2K1lysFXQvV+fPfAopk1F5cKRf8/NhVi9DJZ9q8ioY8DBuzCamc/Ar+zq+fdz9LS/FPyK2Zt0bZ3f+yacelepzD7eRxH/sY0mrhsjRFoaFo/WQ7iDmrnVQUO8PyIACC3HJWZdBrPHtUJyOTSLlmrEQ0vU6H+SLxi4QzQT1iv5UpINEDsjh1ZU9NY="
 
-matrix:
-  include:
-    - php: 7.0
-      env: WITH_LOWEST=true
-    - php: 7.0
-      env: WITH_LOCKED=true WITH_CS=true
-    - php: 7.0
-      env: WITH_HIGHEST=true
-    - php: 7.1
-      env: WITH_LOWEST=true
-    - php: 7.1
-      env: WITH_LOCKED=true WITH_COVERAGE=true
-    - php: 7.1
-      env: WITH_HIGHEST=true
-    - php: 7.2
-      env: WITH_LOWEST=true
-    - php: 7.2
-      env: WITH_LOCKED=true
-    - php: 7.2
-      env: WITH_HIGHEST=true
-
 cache:
   directories:
     - $HOME/.composer/cache
     - $HOME/.php-cs-fixer
 
-before_install:
-  - source .travis/xdebug.sh
-  - xdebug-disable
-  - composer validate
-  - if [[ -n "$GITHUB_TOKEN" ]]; then composer config github-oauth.github.com $GITHUB_TOKEN; fi
+stages:
+  - style
+  - test
 
-install:
-  - if [[ "$WITH_LOWEST" == "true" ]]; then composer update --prefer-lowest; fi
-  - if [[ "$WITH_LOCKED" == "true" ]]; then composer install; fi
-  - if [[ "$WITH_HIGHEST" == "true" ]]; then composer update; fi
+jobs:
+  include:
+    - stage: Style
 
-before_script:
-  - mkdir -p $HOME/.php-cs-fixer
+      php: 7.0
 
-script:
-  - if [[ "$WITH_CS" == "true" ]]; then vendor/bin/php-cs-fixer fix --config=.php_cs --diff --dry-run --verbose; fi
-  - if [[ "$WITH_COVERAGE" == "true" ]]; then xdebug-enable; fi
-  - if [[ "$WITH_COVERAGE" == "true" ]]; then vendor/bin/phpunit --configuration=test/Unit/phpunit.xml --coverage-clover=build/logs/clover.xml; else vendor/bin/phpunit --configuration=test/Unit/phpunit.xml; fi
-  - if [[ "$WITH_COVERAGE" == "true" ]]; then xdebug-disable; fi
-  - vendor/bin/phpunit --configuration=test/Integration/phpunit.xml
+      before_install:
+        - source .travis/xdebug.sh
+        - xdebug-disable
+        - composer validate
+        - if [[ -n "$GITHUB_TOKEN" ]]; then composer config github-oauth.github.com $GITHUB_TOKEN; fi
 
-after_success:
-  - if [[ "$WITH_COVERAGE" == "true" && -n "$CODECLIMATE_REPO_TOKEN" ]]; then vendor/bin/test-reporter --coverage-report=build/logs/clover.xml; fi
+      install:
+        - composer install
+
+      before_script:
+        - mkdir -p $HOME/.php-cs-fixer
+
+      script:
+        - vendor/bin/php-cs-fixer fix --config=.php_cs --diff --dry-run --verbose
+
+    - &TEST
+
+      stage: Test
+
+      php: 7.0
+
+      env: WITH_LOWEST=true
+
+      before_install:
+        - source .travis/xdebug.sh
+        - xdebug-disable
+        - composer validate
+        - if [[ -n "$GITHUB_TOKEN" ]]; then composer config github-oauth.github.com $GITHUB_TOKEN; fi
+
+      install:
+        - if [[ "$WITH_LOWEST" == "true" ]]; then composer update --prefer-lowest; fi
+        - if [[ "$WITH_LOCKED" == "true" ]]; then composer install; fi
+        - if [[ "$WITH_HIGHEST" == "true" ]]; then composer update; fi
+
+      script:
+        - if [[ "$WITH_COVERAGE" == "true" ]]; then xdebug-enable; fi
+        - if [[ "$WITH_COVERAGE" == "true" ]]; then vendor/bin/phpunit --configuration=test/Unit/phpunit.xml --coverage-clover=build/logs/clover.xml; else vendor/bin/phpunit --configuration=test/Unit/phpunit.xml; fi
+        - if [[ "$WITH_COVERAGE" == "true" ]]; then xdebug-disable; fi
+
+      after_success:
+        - if [[ "$WITH_COVERAGE" == "true" && -n "$CODECLIMATE_REPO_TOKEN" ]]; then vendor/bin/test-reporter --coverage-report=build/logs/clover.xml; fi
+
+    - <<: *TEST
+
+      php: 7.0
+
+      env: WITH_LOCKED=true
+
+    - <<: *TEST
+
+      php: 7.0
+
+      env: WITH_HIGHEST=true
+
+    - <<: *TEST
+
+      php: 7.1
+
+      env: WITH_LOWEST=true
+
+    - <<: *TEST
+
+      php: 7.1
+
+      env: WITH_LOCKED=true WITH_COVERAGE=true
+
+    - <<: *TEST
+
+      php: 7.1
+
+      env: WITH_HIGHEST=true
+
+    - <<: *TEST
+
+      php: 7.2
+
+      env: WITH_LOWEST=true
+
+    - <<: *TEST
+
+      php: 7.2
+
+      env: WITH_LOCKED=true
+
+    - <<: *TEST
+
+      php: 7.2
+
+      env: WITH_HIGHEST=true
 
 notifications:
   email: false
