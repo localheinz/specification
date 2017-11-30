@@ -1,9 +1,7 @@
 # specification
 
 [![Build Status](https://travis-ci.org/localheinz/specification.svg?branch=master)](https://travis-ci.org/localheinz/specification)
-[![Code Climate](https://codeclimate.com/github/localheinz/specification/badges/gpa.svg)](https://codeclimate.com/github/localheinz/specification)
-[![Test Coverage](https://codeclimate.com/github/localheinz/specification/badges/coverage.svg)](https://codeclimate.com/github/localheinz/specification/coverage)
-[![Issue Count](https://codeclimate.com/github/localheinz/specification/badges/issue_count.svg)](https://codeclimate.com/github/localheinz/specification)
+[![codecov](https://codecov.io/gh/localheinz/specification/branch/master/graph/badge.svg)](https://codecov.io/gh/localheinz/specification)
 [![Latest Stable Version](https://poser.pugx.org/localheinz/specification/v/stable)](https://packagist.org/packages/localheinz/specification)
 [![Total Downloads](https://poser.pugx.org/localheinz/specification/downloads)](https://packagist.org/packages/localheinz/specification)
 
