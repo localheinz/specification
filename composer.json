@@ -19,7 +19,7 @@
   "require-dev": {
     "localheinz/php-cs-fixer-config": "~1.7.3",
     "localheinz/test-util": "0.5.0",
-    "phpunit/phpunit": "^6.2.1"
+    "phpunit/phpunit": "^6.4.4"
   },
   "autoload": {
     "psr-4": {
