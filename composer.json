@@ -1,7 +1,7 @@
 {
   "name": "localheinz/specification",
-  "description": "Provides specifications following the paper by Eric Evans and Martin Fowler.",
   "type": "library",
+  "description": "Provides specifications following the paper by Eric Evans and Martin Fowler.",
   "license": "MIT",
   "authors": [
     {
@@ -9,10 +9,6 @@
       "email": "am@localheinz.com"
     }
   ],
-  "config": {
-    "preferred-install": "dist",
-    "sort-packages": true
-  },
   "require": {
     "php": "^7.0"
   },
@@ -20,6 +16,10 @@
     "localheinz/php-cs-fixer-config": "~1.7.3",
     "localheinz/test-util": "0.5.0",
     "phpunit/phpunit": "^6.4.4"
+  },
+  "config": {
+    "preferred-install": "dist",
+    "sort-packages": true
   },
   "autoload": {
     "psr-4": {
