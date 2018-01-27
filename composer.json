@@ -2,6 +2,7 @@
   "name": "localheinz/specification",
   "type": "library",
   "description": "Provides specifications following the paper by Eric Evans and Martin Fowler.",
+  "homepage": "https://github.com/localheinz/specification",
   "license": "MIT",
   "authors": [
     {
@@ -30,5 +31,9 @@
     "psr-4": {
       "Localheinz\\Specification\\Test\\": "test"
     }
+  },
+  "support": {
+    "issues": "https://github.com/localheinz/specification/issues",
+    "source": "https://github.com/localheinz/specification"
   }
 }
