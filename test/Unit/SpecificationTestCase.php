@@ -8,7 +8,7 @@ declare(strict_types=1);
  * For the full copyright and license information, please view
  * the LICENSE file that was distributed with this source code.
  *
- * @link https://github.com/localheinz/specification
+ * @see https://github.com/localheinz/specification
  */
 
 namespace Localheinz\Specification\Test\Unit;
@@ -43,7 +43,7 @@ abstract class SpecificationTestCase extends Framework\TestCase
             );
         }, $isSatisfiedBy);
 
-        /* @var SpecificationInterface $specification */
+        /** @var SpecificationInterface $specification */
         $specification = $reflection->newInstance(...$specifications);
 
         $this->assertSame($expected, $specification->isSatisfiedBy($candidate), \sprintf(
