@@ -14,7 +14,7 @@
     "php": "^7.0"
   },
   "require-dev": {
-    "localheinz/php-cs-fixer-config": "~1.7.3",
+    "localheinz/php-cs-fixer-config": "~1.13.1",
     "localheinz/test-util": "0.5.0",
     "phpunit/phpunit": "^6.4.4"
   },
