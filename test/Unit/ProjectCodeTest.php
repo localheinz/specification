@@ -8,7 +8,7 @@ declare(strict_types=1);
  * For the full copyright and license information, please view
  * the LICENSE file that was distributed with this source code.
  *
- * @see https://github.com/localheinz/specification
+ * @link https://github.com/localheinz/specification
  */
 
 namespace Localheinz\Specification\Test\Unit;
@@ -16,6 +16,9 @@ namespace Localheinz\Specification\Test\Unit;
 use Localheinz\Test\Util\Helper;
 use PHPUnit\Framework;
 
+/**
+ * @internal
+ */
 final class ProjectCodeTest extends Framework\TestCase
 {
     use Helper;
