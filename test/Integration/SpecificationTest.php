@@ -35,7 +35,7 @@ final class SpecificationTest extends Framework\TestCase
             new Fixture\Specification\HasBarProperty()
         );
 
-        $this->assertTrue($specification->isSatisfiedBy($candidate));
+        self::assertTrue($specification->isSatisfiedBy($candidate));
     }
 
     public function testOrSpecification()
@@ -50,7 +50,7 @@ final class SpecificationTest extends Framework\TestCase
             new Fixture\Specification\HasBarProperty()
         );
 
-        $this->assertTrue($specification->isSatisfiedBy($candidate));
+        self::assertTrue($specification->isSatisfiedBy($candidate));
     }
 
     public function testNotSpecification()
@@ -63,7 +63,7 @@ final class SpecificationTest extends Framework\TestCase
             new Fixture\Specification\HasBarProperty()
         );
 
-        $this->assertTrue($specification->isSatisfiedBy($candidate));
+        self::assertTrue($specification->isSatisfiedBy($candidate));
     }
 
     public function testMixAndMatchSpecifications()
@@ -78,6 +78,6 @@ final class SpecificationTest extends Framework\TestCase
             )
         );
 
-        $this->assertTrue($specification->isSatisfiedBy($candidate));
+        self::assertTrue($specification->isSatisfiedBy($candidate));
     }
 }

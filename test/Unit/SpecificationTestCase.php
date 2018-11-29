@@ -39,7 +39,7 @@ abstract class SpecificationTestCase extends Framework\TestCase
 
         $reflection = new \ReflectionClass($this->className());
 
-        $specifications = \array_map(function ($isSatisfied) use ($candidate) {
+        $specifications = \array_map(static function ($isSatisfied) use ($candidate) {
             return new Fixture\Specification\CandidateSpecification(
                 $candidate,
                 $isSatisfied
@@ -49,7 +49,7 @@ abstract class SpecificationTestCase extends Framework\TestCase
         /** @var SpecificationInterface $specification */
         $specification = $reflection->newInstance(...$specifications);
 
-        $this->assertSame($expected, $specification->isSatisfiedBy($candidate), \sprintf(
+        self::assertSame($expected, $specification->isSatisfiedBy($candidate), \sprintf(
             'Failed asserting that "%s" is "%s" if composed specifications are "%s".',
             $this->className(),
             $this->name($expected),
