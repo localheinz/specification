@@ -61,7 +61,7 @@ abstract class SpecificationTestCase extends Framework\TestCase
 
     private function className(): string
     {
-        return \preg_replace(
+        $className = \preg_replace(
             '/Test$/',
             '',
             \str_replace(
@@ -70,6 +70,15 @@ abstract class SpecificationTestCase extends Framework\TestCase
                 static::class
             )
         );
+
+        if (!\is_string($className)) {
+            throw new \RuntimeException(\sprintf(
+                'Unable to deduce source class name from test class name "%s".',
+                static::class
+            ));
+        }
+
+        return $className;
     }
 
     private function name(bool $isSatisfied): string

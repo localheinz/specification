@@ -1,9 +1,9 @@
 # CONTRIBUTING
 
 We're using [Travis CI](https://travis-ci.com) as a continuous integration system.
- 
-For details, see [`.travis.yml`](../.travis.yml). 
- 
+
+For details, see [`.travis.yml`](../.travis.yml).
+
 ## Tests
 
 We're using [`phpunit/phpunit`](https://github.com/sebastianbergmann/phpunit) to drive the development.
@@ -28,6 +28,18 @@ $ make cs
 
 to automatically fix coding standard violations.
 
+## Static Code Analysis
+
+We are using [`phpstan/phpstan`](https://github.com/phpstan/phpstan) to statically analyze the code.
+
+Run
+
+```
+$ make stan
+```
+
+to run a static code analysis.
+
 ## Mutation Testing
 
 We are using [`infection/infection`](https://github.com/infection/infection) to ensure a minimum quality of the tests.
@@ -48,4 +60,4 @@ Run
 $ make
 ```
 
-to run both coding standards check and tests!
+to enforce coding standards, perform a static code analysis, and run tests!
