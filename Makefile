@@ -1,6 +1,6 @@
-.PHONY: coverage cs infection it test
+.PHONY: coverage cs infection it stan test
 
-it: cs test
+it: cs stan test
 
 coverage: vendor
 	vendor/bin/phpunit --configuration=test/Unit/phpunit.xml --coverage-text
@@ -11,6 +11,10 @@ cs: vendor
 infection: vendor
 	mkdir -p .infection
 	vendor/bin/infection --ignore-msi-with-no-mutations --min-covered-msi=100 --min-msi=100
+
+stan: vendor
+	mkdir -p .phpstan
+	vendor/bin/phpstan analyse --configuration=phpstan.neon src test
 
 test: vendor
 	vendor/bin/phpunit --configuration=test/Unit/phpunit.xml
