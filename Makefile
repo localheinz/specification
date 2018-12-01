@@ -13,6 +13,7 @@ infection: vendor
 	vendor/bin/infection --ignore-msi-with-no-mutations --min-covered-msi=100 --min-msi=100
 
 test: vendor
+	vendor/bin/phpunit --configuration=test/AutoReview/phpunit.xml
 	vendor/bin/phpunit --configuration=test/Unit/phpunit.xml
 	vendor/bin/phpunit --configuration=test/Integration/phpunit.xml
 
