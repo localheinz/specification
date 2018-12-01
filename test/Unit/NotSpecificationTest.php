@@ -18,7 +18,7 @@ namespace Localheinz\Specification\Test\Unit;
  */
 final class NotSpecificationTest extends SpecificationTestCase
 {
-    public function testIsSatisfiedReturnsTrueIfAllAreUnsatisfied()
+    public function testIsSatisfiedReturnsTrueIfAllAreUnsatisfied(): void
     {
         $isSatisfiedBy = [
             false,
@@ -29,7 +29,7 @@ final class NotSpecificationTest extends SpecificationTestCase
         $this->createTest(true, ...$isSatisfiedBy);
     }
 
-    public function testIsSatisfiedReturnsFalseIfOneIsSatisfied()
+    public function testIsSatisfiedReturnsFalseIfOneIsSatisfied(): void
     {
         $isSatisfiedBy = [
             false,

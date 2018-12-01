@@ -1,5 +1,10 @@
 includes:
+	- vendor/phpstan/phpstan-strict-rules/rules.neon
 	- vendor/phpstan/phpstan/conf/config.levelmax.neon
 
 parameters:
+	excludes_analyse:
+		- %currentWorkingDirectory%/test/Fixture/
+	ignoreErrors:
+		- '#Method Localheinz\\Specification\\(And|Not|Or)Specification::isSatisfiedBy\(\) has parameter \$candidate with no typehint specified.#'
 	tmpDir: %currentWorkingDirectory%/.phpstan
