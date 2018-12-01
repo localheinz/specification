@@ -11,7 +11,7 @@ declare(strict_types=1);
  * @link https://github.com/localheinz/specification
  */
 
-namespace Localheinz\Specification\Test\Unit;
+namespace Localheinz\Specification\Test\AutoReview;
 
 use Localheinz\Test\Util\Helper;
 use PHPUnit\Framework;
@@ -19,23 +19,9 @@ use PHPUnit\Framework;
 /**
  * @internal
  */
-final class ProjectCodeTest extends Framework\TestCase
+final class TestCodeTest extends Framework\TestCase
 {
     use Helper;
-
-    public function testProductionClassesAreAbstractOrFinal()
-    {
-        $this->assertClassesAreAbstractOrFinal(__DIR__ . '/../../src');
-    }
-
-    public function testProductionClassesHaveTests()
-    {
-        $this->assertClassesHaveTests(
-            __DIR__ . '/../../src',
-            'Localheinz\\Specification\\',
-            'Localheinz\\Specification\\Test\\Unit'
-        );
-    }
 
     public function testTestClassesAreAbstractOrFinal()
     {
