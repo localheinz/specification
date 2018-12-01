@@ -22,7 +22,7 @@ use PHPUnit\Framework;
  */
 final class SpecificationTest extends Framework\TestCase
 {
-    public function testAndSpecification()
+    public function testAndSpecification(): void
     {
         $candidate = new \stdClass();
 
@@ -38,7 +38,7 @@ final class SpecificationTest extends Framework\TestCase
         self::assertTrue($specification->isSatisfiedBy($candidate));
     }
 
-    public function testOrSpecification()
+    public function testOrSpecification(): void
     {
         $candidate = new \stdClass();
 
@@ -53,7 +53,7 @@ final class SpecificationTest extends Framework\TestCase
         self::assertTrue($specification->isSatisfiedBy($candidate));
     }
 
-    public function testNotSpecification()
+    public function testNotSpecification(): void
     {
         $candidate = new \SplObjectStorage();
 
@@ -66,7 +66,7 @@ final class SpecificationTest extends Framework\TestCase
         self::assertTrue($specification->isSatisfiedBy($candidate));
     }
 
-    public function testMixAndMatchSpecifications()
+    public function testMixAndMatchSpecifications(): void
     {
         $candidate = new Specification\Test\Fixture\Candidate\Baz();
 

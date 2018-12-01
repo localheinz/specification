@@ -25,7 +25,7 @@ abstract class SpecificationTestCase extends Framework\TestCase
 {
     use Helper;
 
-    final public function testImplementsSpecificationInterface()
+    final public function testImplementsSpecificationInterface(): void
     {
         $this->assertClassImplementsInterface(
             SpecificationInterface::class,
@@ -33,7 +33,7 @@ abstract class SpecificationTestCase extends Framework\TestCase
         );
     }
 
-    final protected function createTest(bool $expected, bool ...$isSatisfiedBy)
+    final protected function createTest(bool $expected, bool ...$isSatisfiedBy): void
     {
         $candidate = new \stdClass();
 
