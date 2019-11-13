@@ -8,13 +8,16 @@ declare(strict_types=1);
  * For the full copyright and license information, please view
  * the LICENSE file that was distributed with this source code.
  *
- * @link https://github.com/localheinz/specification
+ * @see https://github.com/localheinz/specification
  */
 
 namespace Localheinz\Specification\Test\Unit;
 
 /**
  * @internal
+ *
+ * @covers \Localheinz\Specification\NotSpecification
+ * @covers \Localheinz\Specification\Specification
  */
 final class NotSpecificationTest extends SpecificationTestCase
 {

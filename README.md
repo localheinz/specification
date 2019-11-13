@@ -1,6 +1,6 @@
 # specification
 
-[![Build Status](https://travis-ci.com/localheinz/specification.svg?branch=master)](https://travis-ci.com/localheinz/specification)
+[![CI Status](https://github.com/localheinz/php-library-template/workflows/Continuous%20Integration/badge.svg)](https://github.com/localheinz/php-library-template/actions)
 [![codecov](https://codecov.io/gh/localheinz/specification/branch/master/graph/badge.svg)](https://codecov.io/gh/localheinz/specification)
 [![Latest Stable Version](https://poser.pugx.org/localheinz/specification/v/stable)](https://packagist.org/packages/localheinz/specification)
 [![Total Downloads](https://poser.pugx.org/localheinz/specification/downloads)](https://packagist.org/packages/localheinz/specification)
@@ -28,7 +28,7 @@ namespace Foo\Bar;
 
 use Localheinz\Specification\SpecificationInterface;
 
-class IsInstanceOfStdClass implements SpecificationInterface
+final class IsInstanceOfStdClass implements SpecificationInterface
 {
     public function isSatisfiedBy($candidate): bool
     {
@@ -36,7 +36,7 @@ class IsInstanceOfStdClass implements SpecificationInterface
     }
 }
 
-class HasFooProperty implements SpecificationInterface
+final class HasFooProperty implements SpecificationInterface
 {
     public function isSatisfiedBy($candidate): bool
     {
@@ -44,7 +44,7 @@ class HasFooProperty implements SpecificationInterface
     }
 }
 
-class HasBarProperty implements SpecificationInterface
+final class HasBarProperty implements SpecificationInterface
 {
     public function isSatisfiedBy($candidate): bool
     {
@@ -143,6 +143,10 @@ $candidate = new Baz();
 
 $specification->isSatisfiedBy($candidate); // true
 ```
+
+## Changelog
+
+Please have a look at [`CHANGELOG.md`](CHANGELOG.md).
 
 ## Contributing
 
