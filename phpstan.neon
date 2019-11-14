@@ -1,11 +1,18 @@
 includes:
 	- vendor/localheinz/phpstan-rules/rules.neon
+	- vendor/phpstan/phpstan-deprecation-rules/rules.neon
 	- vendor/phpstan/phpstan-strict-rules/rules.neon
+	- vendor/phpstan/phpstan/conf/bleedingEdge.neon
 	- vendor/phpstan/phpstan/conf/config.levelmax.neon
 
 parameters:
+	classesAllowedToBeExtended:
+		- Localheinz\Specification\Specification
+		- Localheinz\Specification\Test\Unit\SpecificationTestCase
 	excludes_analyse:
 		- %currentWorkingDirectory%/test/Fixture/
-	ignoreErrors:
-		- '#Method Localheinz\\Specification\\(And|Not|Or)Specification::isSatisfiedBy\(\) has parameter \$candidate with no typehint specified.#'
-	tmpDir: %currentWorkingDirectory%/.phpstan
+	inferPrivatePropertyTypeFromConstructor: true
+	paths:
+		- src
+		- test
+	tmpDir: %currentWorkingDirectory%/.build/phpstan
