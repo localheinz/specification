@@ -27,7 +27,7 @@ abstract class SpecificationTestCase extends Framework\TestCase
 
     final public function testImplementsSpecificationInterface(): void
     {
-        $this->assertClassImplementsInterface(
+        self::assertClassImplementsInterface(
             SpecificationInterface::class,
             $this->className()
         );
